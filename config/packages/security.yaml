@@ -4,7 +4,8 @@ framework:
         username_ip_login:
             policy: token_bucket
             limit: 5
-            rate: { interval: '5 minutes' }
+            rate:
+                interval: '5 minutes'
 
         ip_login:
             policy: sliding_window
@@ -19,6 +20,7 @@ services:
             $globalFactory: '@limiter.ip_login'
             $localFactory: '@limiter.username_ip_login'
             $secret: '%kernel.secret%'
+
 security:
     providers:
         app_user_provider:
@@ -44,6 +46,8 @@ security:
                 check_path: api_login
             http_basic:
                 realm: Secured Area
+            logout:
+                path: /logout
             x509:
                 # configuration x509 if needed
             remote_user:
@@ -59,8 +63,3 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
-    access_control:
-        # ... other access control rules
-
-    # ... other security configurations
