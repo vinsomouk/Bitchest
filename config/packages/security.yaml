@@ -1,6 +1,6 @@
 framework:
     rate_limiter:
-        # define 2 rate limiters (one for username+IP, the other for IP)
+        # Définir 2 rate limiters (un pour le couple nom d'utilisateur + IP, l'autre pour l'IP seule)
         username_ip_login:
             policy: token_bucket
             limit: 5
@@ -13,7 +13,7 @@ framework:
             interval: '15 minutes'
 
 services:
-    # our custom login rate limiter
+    # Notre rate limiter de connexion personnalisé
     app.login_rate_limiter:
         class: Symfony\Component\Security\Http\RateLimiter\DefaultLoginRateLimiter
         arguments:
@@ -22,6 +22,10 @@ services:
             $secret: '%kernel.secret%'
 
 security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
     providers:
         app_user_provider:
             entity:
@@ -42,24 +46,23 @@ security:
             lazy: true
             provider: app_user_provider
             json_login:
-                # api_login is a route we will create below
+                # api_login est une route que nous créerons ci-dessous
                 check_path: api_login
             http_basic:
                 realm: Secured Area
             logout:
                 path: /logout
             x509:
-                # configuration x509 if needed
+                # configuration x509 si nécessaire
             remote_user:
-                # configuration remote_user if needed
+                # configuration remote_user si nécessaire
             login_throttling: null
 
-            # configure the maximum login attempts
+            # Configurer le nombre maximum de tentatives de connexion
             login_throttling:
                 limiter: 'app.login_rate_limiter'
 
-            # activate different ways to authenticate
+            # Activer différentes méthodes d'authentification
             # https://symfony.com/doc/current/security.html#the-firewall
 
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            # https://symfony.com/doc/current/security/impersonating_u
