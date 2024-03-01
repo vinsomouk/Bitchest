@@ -1,20 +1,27 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello HomeController!{% endblock %}
-
-{% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/diaki/Desktop/B2 DEV/Projet Bitchest/DEV/Bitchest/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/Users/diaki/Desktop/B2 DEV/Projet Bitchest/DEV/Bitchest/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+            .bg-d1 {
+                background-color: #38618c;
+            }
+            .bg-t1 {
+                background-color: #ff5964;
+            }
+        </style>
+    </head>
+    <div class="bg-gray-200">
+        <div class="h-screen flex">
+            <div class="w-1/4 bg-d1">
+                <div class="p-4">
+                    <img src="Bitchest.png" alt="Logo Bitchest" class="w-20 h-20" />
+                </div>
+                <ul class="w-40 text-center mt-12 mx-auto space-y-3">
+                    <li class="mb-2 bg-t1 text-white">Élément 1</li>
+                    <li class="mb-2 bg-t1 text-white">Élément 2</li>
+                    <li class="mb-2 bg-t1 text-white">Élément 3</li>
+                    <li class="mb-2 bg-t1 text-white">Élément 4</li>
+                    <li class="mb-2 bg-t1 text-white">Élément 5</li>
+                    <li class="mb-2 bg-t1 text-white">Élément 6</li>
+                </ul>
+            </div>
+            <div class="w-3/4 bg-gray-100"></div>
+        </div>
+    </div>

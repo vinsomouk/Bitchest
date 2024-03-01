@@ -132,4 +132,21 @@ public function setAgreeTerms(bool $agreeTerms): static
 
         return $this;
     }
+
+    /**
+ * @ORM\ManyToOne(targetEntity=Administrator::class, inversedBy="users")
+ */
+private ?Administrator $administrator = null;
+
+public function getAdministrator(): ?Administrator
+{
+    return $this->administrator;
+}
+
+public function setAdministrator(?Administrator $administrator): static
+{
+    $this->administrator = $administrator;
+
+    return $this;
+}
 }

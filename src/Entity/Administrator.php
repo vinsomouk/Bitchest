@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\AdministratorRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 
 #[ORM\Entity(repositoryClass: AdministratorRepository::class)]
 class Administrator
@@ -32,4 +35,19 @@ class Administrator
 
         return $this;
     }
+
+    /**
+ * @ORM\OneToMany(targetEntity=User::class, mappedBy="administrator")
+ */
+private Collection $users;
+
+public function __construct()
+{
+    $this->users = new ArrayCollection();
+}
+
+public function getUsers(): Collection
+{
+    return $this->users;
+}
 }

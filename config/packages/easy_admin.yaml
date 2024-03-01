@@ -1,0 +1,34 @@
+easy_admin:
+    entities:
+        User:
+            class: App\Entity\User
+            list:
+                fields:
+                    - id
+                    - username
+                    - administrator
+            new:
+                fields:
+                    - username
+                    - password
+                    - administrator
+            edit:
+                fields:
+                    - username
+                    - password
+                    - administrator
+            delete: true
+
+        Administrator:
+            class: App\Entity\Administrator
+            list:
+                fields:
+                    - id
+                    - Name
+            new:
+                fields:
+                    - Name
+            edit:
+                fields:
+                    - Name
+            delete: true

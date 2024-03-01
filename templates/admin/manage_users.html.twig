@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Manage Users</h1>
+
+    {# Affichez la liste des utilisateurs ici #}
+
+    {# Liens pour les actions CRUD #}
+    <a href="{{ path('admin_edit_user', {'id': user.id}) }}">Edit User</a>
+    <a href="{{ path('admin_delete_user', {'id': user.id}) }}">Delete User</a>
+    <a href="{{ path('admin_create_user') }}">Create User</a>
+{% endblock %}

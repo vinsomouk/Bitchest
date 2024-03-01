@@ -1,0 +1,10 @@
+{# templates/admin/dashboard.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome to the Admin Dashboard, {{ app.user.username }}!</h1>
+
+    {# Affichez les informations personnelles de l'administrateur ici #}
+
+    <a href="{{ path('admin_edit_profile') }}">Edit My Profile</a>
+{% endblock %}
