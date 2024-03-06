@@ -134,6 +134,23 @@ public function setAgreeTerms(bool $agreeTerms): static
     }
 
     /**
+     * @ORM\OneToOne(targetEntity=Portefeuille::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private ?Portefeuille $portefeuille = null;
+
+    public function getPortefeuille(): ?Portefeuille
+    {
+        return $this->portefeuille;
+    }
+
+    public function setPortefeuille(?Portefeuille $portefeuille): self
+    {
+        $this->portefeuille = $portefeuille;
+
+        return $this;
+    }
+
+    /**
  * @ORM\ManyToOne(targetEntity=Administrator::class, inversedBy="users")
  */
 private ?Administrator $administrator = null;
